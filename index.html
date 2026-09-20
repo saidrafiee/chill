@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chill - Streaming Film & Series</title>
+  <link rel="stylesheet" href="./dist/output.css">
+</head>
+
+<body
+  class="bg-chill-bg text-white font-sans antialiased selection:bg-chill-accent selection:text-white min-h-screen flex flex-col">
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-50 w-full bg-chill-bg/90 backdrop-blur-md transition-all duration-300"
+    style="border-bottom: 1px solid rgba(231, 227, 252, 0.15);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[64px] sm:h-[80px] flex items-center justify-between">
+
+      <!-- Brand Logo & Navigation Links -->
+      <div class="flex items-center gap-6 sm:gap-10">
+        <a href="./index.html" class="flex items-center">
+          <img src="./assets/icons/logo.svg" alt="CHILL" class="h-7 sm:h-9 w-auto">
+        </a>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-[#C1C2C4]">
+          <a href="#" class="hover:text-white transition-colors duration-200">Series</a>
+          <a href="#" class="hover:text-white transition-colors duration-200">Film</a>
+          <a href="#" class="hover:text-white transition-colors duration-200">Daftar Saya</a>
+        </nav>
+      </div>
+
+      <!-- Right Side: Avatar -->
+      <div class="flex items-center gap-4">
+        <!-- User Profile Avatar with dropdown caret -->
+        <div class="relative group cursor-pointer flex items-center gap-1.5">
+          <div
+            class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden ring-2 ring-transparent group-hover:ring-white/30 transition-all"
+            style="border: 1px solid rgba(231, 227, 252, 0.23);">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop"
+              alt="Avatar" class="w-full h-full object-cover">
+          </div>
+          <!-- Dropdown Arrow -->
+          <svg class="w-3 h-3 text-[#C1C2C4] hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-[#C1C2C4] hover:text-white p-2 focus:outline-none"
+          aria-label="Buka menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 text-sm"
+      style="border-top: 1px solid rgba(231, 227, 252, 0.15); background: rgba(24, 26, 28, 0.97);">
+      <a href="#" class="block py-2 text-[#C1C2C4] hover:text-white">Series</a>
+      <a href="#" class="block py-2 text-[#C1C2C4] hover:text-white">Film</a>
+      <a href="#" class="block py-2 text-[#C1C2C4] hover:text-white">Daftar Saya</a>
+      <div class="pt-2 flex gap-2" style="border-top: 1px solid rgba(231, 227, 252, 0.15);">
+        <a href="./masuk.html"
+          class="w-1/2 text-center py-2 bg-[#2F3334] rounded-full text-xs font-semibold text-white">Masuk</a>
+        <a href="./daftar.html"
+          class="w-1/2 text-center py-2 bg-chill-accent rounded-full text-xs font-semibold text-white">Daftar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO BANNER SECTION ================= -->
+  <section class="relative w-full h-[520px] sm:h-[620px] lg:h-[700px] flex items-end">
+    <!-- Hero Background Image & Gradients -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=1920&auto=format&fit=crop"
+        alt="Duty After School Banner" class="w-full h-full object-cover object-center brightness-75">
+      <!-- Gradient Overlays for Cinematic Netflix Look -->
+      <div class="absolute inset-0 bg-gradient-to-t from-chill-bg via-chill-bg/40 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-chill-bg/90 via-chill-bg/40 to-transparent"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 w-full">
+      <div class="max-w-2xl space-y-4 sm:space-y-5">
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white drop-shadow-md">
+          Duty After School
+        </h1>
+        <p
+          class="text-xs sm:text-sm lg:text-base text-gray-300 leading-relaxed line-clamp-3 sm:line-clamp-none max-w-xl">
+          Sebuah benda tak dikenal mengambil alih dunia. Dalam keputusasaan, Departemen Pertahanan mulai merekrut lebih
+          banyak tentara, termasuk siswa sekolah menengah. Mereka pun segera menjadi pejuang garis depan dalam perang.
+        </p>
+
+        <!-- CTA Buttons & Rating -->
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <!-- Tombol Mulai -->
+          <button
+            class="flex items-center gap-2 px-6 py-2.5 sm:py-3 bg-chill-accent hover:bg-chill-accent-hover text-white text-sm sm:text-base font-semibold rounded-full shadow-lg transition-all duration-200">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <span>Mulai</span>
+          </button>
+
+          <!-- Tombol Selengkapnya -->
+          <button
+            class="flex items-center gap-2 px-5 py-2.5 sm:py-3 bg-[#3D4142] hover:bg-[#4E5355] text-white text-sm sm:text-base font-semibold rounded-full transition-all duration-200">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Selengkapnya</span>
+          </button>
+
+          <!-- Age Rating Badge -->
+          <span class="px-3 py-1 rounded-full text-xs font-bold text-[#C1C2C4]"
+            style="border: 1px solid rgba(231, 227, 252, 0.23); background: rgba(0,0,0,0.4);">
+            18+
+          </span>
+
+          <!-- Audio / Sound Button -->
+          <button
+            class="ml-auto sm:ml-2 p-2.5 rounded-full hover:bg-white/10 text-[#C1C2C4] hover:text-white transition-all"
+            style="border: 1px solid rgba(231, 227, 252, 0.23); background: rgba(0,0,0,0.4);"
+            aria-label="Mute / Unmute">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MAIN CONTENT ROWS ================= -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12 flex-1 w-full">
+
+    <!-- 1. SECTION: Melanjutkan Tonton Film -->
+    <section class="space-y-4 p-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-lg sm:text-2xl tracking-tight text-white">Melanjutkan Tonton Film</h2>
+      </div>
+
+      <!-- Pembungkus Slider & Tombol Overlay -->
+      <div class="relative group/slider w-full">
+
+        <!-- Tombol Navigasi Kiri (Melayang & Muncul Saat Hover) -->
+        <button class="absolute hidden sm:flex left-2 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full border border-chill-border bg-chill-surface/80 backdrop-blur-sm items-center justify-center text-white opacity-0 group-hover/slider:opacity-100 hover:bg-chill-border transition-all duration-300 shadow-lg cursor-pointer"
+          aria-label="Scroll Left">
+          <svg class="w-5 h-5 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <!-- Tombol Navigasi Kanan (Melayang & Muncul Saat Hover) -->
+        <button class="absolute hidden sm:flex right-2 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full border border-chill-border bg-chill-surface/80 backdrop-blur-sm items-center justify-center text-white opacity-0 group-hover/slider:opacity-100 hover:bg-chill-border transition-all duration-300 shadow-lg cursor-pointer"
+          aria-label="Scroll Right">
+          <svg class="w-5 h-5 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        <!-- Horizontal Scroll List -->
+        <div id="continue-watch-slider"
+          class="flex p-2 gap-4 overflow-x-auto no-scrollbar snap-x pb-2 scroll-smooth">
+
+          <!-- Testing 1 -->
+          <div
+            class="banner group snap-start flex-shrink-0 h-full w-60 sm:w-72 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300">
+            <div class="relative aspect-video">
+              <img src="assets/banners/31.png" alt="">
+
+              <div
+                class="absolute bottom-0 inset-x-0 h-0 bg-black/35 backdrop-blur-sm opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:h-1/3 px-2">
+              </div>
+              <div
+                class="progress-bar absolute bottom-0 inset-x-0 z-10 h-0.5 bg-gray-700 transition-all duration-300 group-hover:bottom-1/3 group-hover:h-1">
+                <div class="h-full bg-slate-200 group-hover:bg-blue-500 w-2/3 transition-all duration-300"></div>
+              </div>
+              <div class="flex text-gray-200">
+                <span class="absolute bottom-1 p-2.5 font-semibold text-sm truncate"> Don't Look Up</span>
+                <div class="absolute flex gap-1 items-center bottom-1 p-2.5 right-0 font-semibold text-sm">
+                  <svg class="h-3 fill-current" viewBox="0 -0.5 33 33" xmlns="http://www.w3.org/2000/svg">
+                    <polygon
+                      points="27.865 31.83 17.615 26.209 7.462 32.009 9.553 20.362 0.99 12.335 12.532 10.758 17.394 0 22.436 10.672 34 12.047 25.574 20.22" />
+                  </svg>
+                  <span>4.8/5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testing 2 -->
+          <div
+            class="banner group snap-start flex-shrink-0 h-full w-60 sm:w-72 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300">
+            <div class="relative aspect-video">
+              <img src="assets/banners/2.png" alt="2.png">
+
+              <div
+                class="absolute bottom-0 inset-x-0 h-0 bg-black/35 backdrop-blur-sm opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:h-1/3 px-2">
+              </div>
+              <div
+                class="progress-bar absolute bottom-0 inset-x-0 z-10 h-0.5 bg-gray-700 transition-all duration-300 group-hover:bottom-1/3 group-hover:h-1">
+                <div class="h-full bg-slate-200 group-hover:bg-blue-500 w-3/4 transition-all duration-300"></div>
+              </div>
+              <div class="flex text-gray-200">
+                <span class="absolute bottom-1 p-2.5 font-semibold text-sm truncate"> SHAZAM!</span>
+                <div class="absolute flex gap-1 items-center bottom-1 p-2.5 right-0 font-semibold text-sm">
+                  <svg class="h-3 fill-current" viewBox="0 -0.5 33 33" xmlns="http://www.w3.org/2000/svg">
+                    <polygon
+                      points="27.865 31.83 17.615 26.209 7.462 32.009 9.553 20.362 0.99 12.335 12.532 10.758 17.394 0 22.436 10.672 34 12.047 25.574 20.22" />
+                  </svg>
+                  <span>4.1/5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testing 3 -->
+          <div
+            class="banner group snap-start flex-shrink-0 h-full w-60 sm:w-72 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300">
+            <div class="relative aspect-video">
+              <img src="assets/banners/12.png" alt="12.png">
+
+              <div
+                class="absolute bottom-0 inset-x-0 h-0 bg-black/35 backdrop-blur-sm opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:h-1/3 px-2">
+              </div>
+              <div
+                class="progress-bar absolute bottom-0 inset-x-0 z-10 h-0.5 bg-gray-700 transition-all duration-300 group-hover:bottom-1/3 group-hover:h-1">
+                <div class="h-full bg-slate-200 group-hover:bg-blue-500 w-1/5 transition-all duration-300"></div>
+              </div>
+              <div class="flex text-gray-200">
+                <span class="absolute bottom-1 p-2.5 font-semibold text-sm truncate">The Batman</span>
+                <div class="absolute flex gap-1 items-center bottom-1 p-2.5 right-0 font-semibold text-sm">
+                  <svg class="h-3 fill-current" viewBox="0 -0.5 33 33" xmlns="http://www.w3.org/2000/svg">
+                    <polygon
+                      points="27.865 31.83 17.615 26.209 7.462 32.009 9.553 20.362 0.99 12.335 12.532 10.758 17.394 0 22.436 10.672 34 12.047 25.574 20.22" />
+                  </svg>
+                  <span>4.8/5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testing 4 -->
+          <div
+            class="banner group snap-start flex-shrink-0 h-full w-60 sm:w-72 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300">
+            <div class="relative aspect-video">
+              <img src="assets/banners/17.png" alt="17.png">
+
+              <div
+                class="absolute bottom-0 inset-x-0 h-0 bg-black/35 backdrop-blur-sm opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:h-1/3 px-2">
+              </div>
+              <div
+                class="progress-bar absolute bottom-0 inset-x-0 z-10 h-0.5 bg-gray-700 transition-all duration-300 group-hover:bottom-1/3 group-hover:h-1">
+                <div class="h-full bg-slate-200 group-hover:bg-blue-500 w-3/5 transition-all duration-300"></div>
+              </div>
+              <div class="flex text-gray-200">
+                <span class="absolute bottom-1 p-2.5 font-semibold text-sm truncate">All of Us are Dead</span>
+                <div class="absolute flex gap-1 items-center bottom-1 p-2.5 right-0 font-semibold text-sm">
+                  <svg class="h-3 fill-current" viewBox="0 -0.5 33 33" xmlns="http://www.w3.org/2000/svg">
+                    <polygon
+                      points="27.865 31.83 17.615 26.209 7.462 32.009 9.553 20.362 0.99 12.335 12.532 10.758 17.394 0 22.436 10.672 34 12.047 25.574 20.22" />
+                  </svg>
+                  <span>3.8/5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testing 5 -->
+          <div
+            class="banner group snap-start flex-shrink-0 h-full w-60 sm:w-72 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300">
+            <div class="relative aspect-video">
+              <img src="assets/banners/20.png" alt="20.png">
+
+              <div
+                class="absolute bottom-0 inset-x-0 h-0 bg-black/35 backdrop-blur-sm opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:h-1/3 px-2">
+              </div>
+              <div
+                class="progress-bar absolute bottom-0 inset-x-0 z-10 h-0.5 bg-gray-700 transition-all duration-300 group-hover:bottom-1/3 group-hover:h-1">
+                <div class="h-full bg-slate-200 group-hover:bg-blue-500 w-2/3 transition-all duration-300"></div>
+              </div>
+              <div class="flex text-gray-200">
+                <span class="absolute bottom-1 p-2.5 font-semibold text-sm truncate">MEGAN</span>
+                <div class="absolute flex gap-1 items-center bottom-1 p-2.5 right-0 font-semibold text-sm">
+                  <svg class="h-3 fill-current" viewBox="0 -0.5 33 33" xmlns="http://www.w3.org/2000/svg">
+                    <polygon
+                      points="27.865 31.83 17.615 26.209 7.462 32.009 9.553 20.362 0.99 12.335 12.532 10.758 17.394 0 22.436 10.672 34 12.047 25.574 20.22" />
+                  </svg>
+                  <span>4.2/5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SECTION: Top Rating Film dan Series Hari ini -->
+    <section class="space-y-4">
+      <h2 class="text-lg sm:text-2xl tracking-tight text-white">Top Rating Film dan Series Hari ini</h2>
+
+      <!-- Vertical Poster Grid / Horizontal Scroll -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-5">
+        <!-- Item 1 with Episode Baru badge -->
+        <div
+          class="relative group rounded-xl overflow-hidden bg-chill-surface border border-chill-border/40 aspect-[2/3] cursor-pointer hover:scale-105 transition-transform duration-300 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=300&auto=format&fit=crop"
+            alt="Suzume" class="w-full h-full object-cover">
+          <span
+            class="absolute top-2 left-2 px-2 py-0.5 bg-chill-accent text-[10px] sm:text-xs font-bold rounded-md shadow">Episode
+            Baru</span>
+        </div>
+
+        <!-- Item 2 -->
+        <div
+          class="relative group rounded-xl overflow-hidden bg-chill-surface border border-chill-border/40 aspect-[2/3] cursor-pointer hover:scale-105 transition-transform duration-300 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=300&auto=format&fit=crop"
+            alt="Jurassic World" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Item 3 -->
+        <div
+          class="relative group rounded-xl overflow-hidden bg-chill-surface border border-chill-border/40 aspect-[2/3] cursor-pointer hover:scale-105 transition-transform duration-300 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=300&auto=format&fit=crop"
+            alt="Sonic" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Item 4 with Episode Baru -->
+        <div
+          class="relative group rounded-xl overflow-hidden bg-chill-surface border border-chill-border/40 aspect-[2/3] cursor-pointer hover:scale-105 transition-transform duration-300 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=300&auto=format&fit=crop"
+            alt="All of Us Are Dead" class="w-full h-full object-cover">
+          <span
+            class="absolute top-2 left-2 px-2 py-0.5 bg-chill-accent text-[10px] sm:text-xs font-bold rounded-md shadow">Episode
+            Baru</span>
+        </div>
+
+        <!-- Item 5 with Top 10 badge -->
+        <div
+          class="relative group rounded-xl overflow-hidden bg-chill-surface border border-chill-border/40 aspect-[2/3] cursor-pointer hover:scale-105 transition-transform duration-300 shadow-lg col-span-2 sm:col-span-1">
+          <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=300&auto=format&fit=crop"
+            alt="Big Hero 6" class="w-full h-full object-cover">
+          <span
+            class="absolute top-2 right-2 px-2 py-0.5 bg-chill-red text-[10px] sm:text-xs font-bold rounded-md shadow">Top
+            10</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SECTION: Film Trending -->
+    <section class="space-y-4">
+      <h2 class="text-lg sm:text-2xl tracking-tight text-white">Film Trending</h2>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-5">
+        <!-- 5 Trending items with Top 10 badges -->
+        <div
+          class="relative group rounded-xl overflow-hidden bg-chill-surface border border-chill-border/40 aspect-[2/3] cursor-pointer hover:scale-105 transition-transform duration-300 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=300&auto=format&fit=crop"
+            alt="Trending 1" class="w-full h-full object-cover">
+          <span
+            class="absolute top-2 right-2 px-2 py-0.5 bg-chill-red text-[10px] sm:text-xs font-bold rounded-md shadow">Top
+            10</span>
+        </div>
+        <div
+          class="relative group rounded-xl overflow-hidden bg-chill-surface border border-chill-border/40 aspect-[2/3] cursor-pointer hover:scale-105 transition-transform duration-300 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=300&auto=format&fit=crop"
+            alt="Trending 2" class="w-full h-full object-cover">
+          <span
+            class="absolute top-2 right-2 px-2 py-0.5 bg-chill-red text-[10px] sm:text-xs font-bold rounded-md shadow">Top
+            10</span>
+        </div>
+        <div
+          class="relative group rounded-xl overflow-hidden bg-chill-surface border border-chill-border/40 aspect-[2/3] cursor-pointer hover:scale-105 transition-transform duration-300 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=300&auto=format&fit=crop"
+            alt="Trending 3" class="w-full h-full object-cover">
+          <span
+            class="absolute top-2 right-2 px-2 py-0.5 bg-chill-red text-[10px] sm:text-xs font-bold rounded-md shadow">Top
+            10</span>
+        </div>
+        <div
+          class="relative group rounded-xl overflow-hidden bg-chill-surface border border-chill-border/40 aspect-[2/3] cursor-pointer hover:scale-105 transition-transform duration-300 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=300&auto=format&fit=crop"
+            alt="Trending 4" class="w-full h-full object-cover">
+          <span
+            class="absolute top-2 right-2 px-2 py-0.5 bg-chill-red text-[10px] sm:text-xs font-bold rounded-md shadow">Top
+            10</span>
+        </div>
+        <div
+          class="relative group rounded-xl overflow-hidden bg-chill-surface border border-chill-border/40 aspect-[2/3] cursor-pointer hover:scale-105 transition-transform duration-300 shadow-lg col-span-2 sm:col-span-1">
+          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=300&auto=format&fit=crop"
+            alt="Trending 5" class="w-full h-full object-cover">
+          <span
+            class="absolute top-2 right-2 px-2 py-0.5 bg-chill-red text-[10px] sm:text-xs font-bold rounded-md shadow">Top
+            10</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SECTION: Rilis Baru -->
+    <section class="space-y-4">
+      <h2 class="text-lg sm:text-2xl tracking-tight text-white">Rilis Baru</h2>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-5">
+        <div
+          class="relative group rounded-xl overflow-hidden bg-chill-surface border border-chill-border/40 aspect-[2/3] cursor-pointer hover:scale-105 transition-transform duration-300 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=300&auto=format&fit=crop"
+            alt="Rilis Baru 1" class="w-full h-full object-cover">
+          <span
+            class="absolute top-2 right-2 px-2 py-0.5 bg-chill-red text-[10px] sm:text-xs font-bold rounded-md shadow">Top
+            10</span>
+        </div>
+        <div
+          class="relative group rounded-xl overflow-hidden bg-chill-surface border border-chill-border/40 aspect-[2/3] cursor-pointer hover:scale-105 transition-transform duration-300 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=300&auto=format&fit=crop"
+            alt="Rilis Baru 2" class="w-full h-full object-cover">
+          <span
+            class="absolute top-2 left-2 px-2 py-0.5 bg-chill-accent text-[10px] sm:text-xs font-bold rounded-md shadow">Episode
+            Baru</span>
+        </div>
+        <div
+          class="relative group rounded-xl overflow-hidden bg-chill-surface border border-chill-border/40 aspect-[2/3] cursor-pointer hover:scale-105 transition-transform duration-300 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=300&auto=format&fit=crop"
+            alt="Rilis Baru 3" class="w-full h-full object-cover">
+          <span
+            class="absolute top-2 right-2 px-2 py-0.5 bg-chill-red text-[10px] sm:text-xs font-bold rounded-md shadow">Top
+            10</span>
+        </div>
+        <div
+          class="relative group rounded-xl overflow-hidden bg-chill-surface border border-chill-border/40 aspect-[2/3] cursor-pointer hover:scale-105 transition-transform duration-300 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=300&auto=format&fit=crop"
+            alt="Rilis Baru 4" class="w-full h-full object-cover">
+          <span
+            class="absolute top-2 left-2 px-2 py-0.5 bg-chill-accent text-[10px] sm:text-xs font-bold rounded-md shadow">Episode
+            Baru</span>
+        </div>
+        <div
+          class="relative group rounded-xl overflow-hidden bg-chill-surface border border-chill-border/40 aspect-[2/3] cursor-pointer hover:scale-105 transition-transform duration-300 shadow-lg col-span-2 sm:col-span-1">
+          <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=300&auto=format&fit=crop"
+            alt="Rilis Baru 5" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="w-full bg-chill-bg mt-16 py-12 text-sm text-[#C1C2C4]"
+    style="border-top: 1px solid rgba(231, 227, 252, 0.23);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        <!-- Brand & Copyright -->
+        <div class="space-y-4 md:col-span-1">
+          <img src="./assets/icons/logo.svg" alt="CHILL" class="h-8 w-auto">
+          <p class="text-xs text-[#C1C2C4]">
+            &copy; 2023 CHILL All Rights Reserved.
+          </p>
+        </div>
+
+        <!-- Kolom Genre 1 -->
+        <div>
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-white mb-3">Genre</h3>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#" class="hover:text-white transition-colors">Aksi</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Anak-anak</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Anime</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Britania</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Drama</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Fantasi Ilmiah &amp; Fantasi</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Kejahatan</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom Genre 2 -->
+        <div>
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-white mb-3 invisible md:visible">Genre
+            Lainnya</h3>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#" class="hover:text-white transition-colors">KDrama</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Komedi</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Petualangan</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Perang</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Romantis</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Sains &amp; Alam</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Thriller</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom Bantuan -->
+        <div>
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-white mb-3">Bantuan</h3>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Kontak Kami</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Privasi</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Syarat &amp; Ketentuan</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Simple mobile menu script -->
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+
+</html>

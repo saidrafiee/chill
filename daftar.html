@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chill - Daftar</title>
+  <link rel="stylesheet" href="./dist/output.css">
+</head>
+
+<body class="min-h-screen flex items-center justify-center relative p-4 bg-cover bg-center bg-no-repeat"
+  style="background-image: url('./assets/background-daftar.jpg');">
+
+  <!-- Overlay gelap tipis -->
+  <div class="absolute inset-0 bg-black/30"></div>
+
+  <!-- Container Card Daftar -->
+  <main class="relative z-10 w-full max-w-[529px] rounded-2xl px-10 py-10 shadow-2xl text-white"
+    style="background: rgba(24, 26, 28, 0.84); backdrop-filter: blur(12px); border: 1px solid rgba(231, 227, 252, 0.23);">
+
+    <!-- Logo -->
+    <div class="flex justify-center mb-8">
+      <a href="./index.html">
+        <img src="./assets/icons/logo.svg" alt="Chill Logo" class="h-9 w-auto">
+      </a>
+    </div>
+
+    <!-- Judul -->
+    <h1 class="text-2xl font-bold text-center mb-6 tracking-tight">Daftar</h1>
+
+    <!-- Form Daftar -->
+    <form action="#" method="POST" class="space-y-4">
+
+      <!-- Username Field -->
+      <div>
+        <label for="username" class="block text-sm font-medium mb-2 text-white">Username</label>
+        <input type="text" id="username" name="username" placeholder="Masukkan username" required
+          class="w-full h-[46px] px-5 rounded-full text-white text-sm placeholder-[#C1C2C4] focus:outline-none focus:ring-1 focus:ring-white/30 transition-all duration-200"
+          style="background: rgba(24, 26, 28, 0.6); border: 1px solid rgba(231, 227, 252, 0.23);">
+      </div>
+
+      <!-- Password Field -->
+      <div>
+        <label for="password" class="block text-sm font-medium mb-2 text-white">Kata Sandi</label>
+        <div class="relative">
+          <input type="password" id="password" name="password" placeholder="Masukkan kata sandi" required
+            class="w-full h-[46px] px-5 pr-12 rounded-full text-white text-sm placeholder-[#C1C2C4] focus:outline-none focus:ring-1 focus:ring-white/30 transition-all duration-200"
+            style="background: rgba(24, 26, 28, 0.6); border: 1px solid rgba(231, 227, 252, 0.23);">
+          <button type="button" id="toggle-password"
+            class="absolute inset-y-0 right-0 pr-4 flex items-center text-[#9D9EA1] hover:text-white transition-colors"
+            aria-label="Lihat kata sandi">
+            <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+            <svg id="eye-off-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.542 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Konfirmasi Password Field -->
+      <div>
+        <label for="confirm-password" class="block text-sm font-medium mb-2 text-white">Konfirmasi Kata Sandi</label>
+        <div class="relative">
+          <input type="password" id="confirm-password" name="confirm-password" placeholder="Masukkan kata sandi"
+            required
+            class="w-full h-[46px] px-5 pr-12 rounded-full text-white text-sm placeholder-[#C1C2C4] focus:outline-none focus:ring-1 focus:ring-white/30 transition-all duration-200"
+            style="background: rgba(24, 26, 28, 0.6); border: 1px solid rgba(231, 227, 252, 0.23);">
+          <button type="button" id="toggle-confirm-password"
+            class="absolute inset-y-0 right-0 pr-4 flex items-center text-[#9D9EA1] hover:text-white transition-colors"
+            aria-label="Lihat konfirmasi kata sandi">
+            <svg id="eye-icon-confirm" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+            <svg id="eye-off-icon-confirm" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.542 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Link Masuk -->
+      <div class="text-xs text-[#C1C2C4] pt-1">
+        Sudah punya akun?
+        <a href="./masuk.html" class="text-white hover:underline font-semibold ml-1">Masuk</a>
+      </div>
+
+      <!-- Tombol Daftar -->
+      <button type="submit"
+        class="w-full h-[48px] px-4 bg-[#3D4142] hover:bg-[#4E5355] text-white font-semibold rounded-full shadow-lg transition-all duration-200 text-sm focus:outline-none mt-2">
+        Daftar
+      </button>
+
+      <!-- Pembatas Atau -->
+      <div class="relative flex items-center justify-center my-2">
+        <div class="absolute inset-0 flex items-center">
+          <div class="w-full" style="border-top: 1px solid rgba(231, 227, 252, 0.23);"></div>
+        </div>
+        <span class="relative px-4 text-xs text-[#9D9EA1] uppercase tracking-wider"
+          style="background: rgba(24, 26, 28, 0.84);">Atau</span>
+      </div>
+
+      <!-- Tombol Daftar dengan Google -->
+      <button type="button"
+        class="w-full h-[46px] px-4 bg-transparent hover:bg-white/5 rounded-full flex items-center justify-center gap-3 transition-all duration-200 text-sm font-medium text-white focus:outline-none"
+        style="border: 1px solid rgba(231, 227, 252, 0.23);">
+        <img src="./assets/icons/google.svg" alt="Google" class="w-5 h-5">
+        <span>Daftar dengan Google</span>
+      </button>
+
+    </form>
+  </main>
+
+  <!-- Script toggle password -->
+  <script>
+    function setupToggle(btnId, inputId, eyeId, eyeOffId) {
+      const btn = document.getElementById(btnId);
+      const input = document.getElementById(inputId);
+      const eye = document.getElementById(eyeId);
+      const eyeOff = document.getElementById(eyeOffId);
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const isHidden = input.type === 'password';
+          input.type = isHidden ? 'text' : 'password';
+          eye.classList.toggle('hidden', isHidden);
+          eyeOff.classList.toggle('hidden', !isHidden);
+        });
+      }
+    }
+    setupToggle('toggle-password', 'password', 'eye-icon', 'eye-off-icon');
+    setupToggle('toggle-confirm-password', 'confirm-password', 'eye-icon-confirm', 'eye-off-icon-confirm');
+  </script>
+
+</body>
+
+</html>
