@@ -1,74 +1,64 @@
-# Chill - Slicing UI Streaming Website (Netflix Clone)
+# Chill
 
-Proyek slicing UI website streaming film bernama **Chill** berdasarkan rancangan Figma/Template dengan menggunakan **HTML5**, **CSS3 (Tailwind CSS)**, dan package manager **pnpm**.
+Chill adalah proyek antarmuka website streaming film dan serial yang dibuat sebagai latihan slicing UI. Proyek ini menggunakan HTML dan Tailwind CSS, dengan halaman beranda, masuk, dan pendaftaran.
 
----
+## Teknologi
 
-## 📁 Struktur Folder Proyek
+- HTML
+- Tailwind CSS 3
+- pnpm
+
+## Struktur Proyek
 
 ```text
-chill/
+.
 ├── assets/
+│   ├── banners/
 │   ├── icons/
-│   │   ├── logo.svg        # Logo utama Chill (clapperboard + teks)
-│   │   └── google.svg      # Ikon Google untuk tombol login/daftar
-│   └── images/             # Gambar & poster film
-├── src/
-│   └── input.css           # Sumber Tailwind CSS & custom styling
+│   ├── posters/
+│   ├── background-daftar.jpg
+│   ├── background-masuk.jpg
+│   └── hero-banner.png
 ├── dist/
-│   └── output.css          # CSS hasil kompilasi Tailwind (minified)
-├── index.html              # Halaman Beranda (Home)
-├── masuk.html              # Halaman Masuk (Login)
-├── daftar.html             # Halaman Daftar (Register)
-├── tailwind.config.js      # Konfigurasi kustom tema warna Chill
-├── package.json            # Script & dependensi pnpm
-└── template.png            # Acuan desain asli
+│   └── output.css
+├── src/
+│   └── input.css
+├── daftar.html
+├── index.html
+├── masuk.html
+├── package.json
+├── pnpm-lock.yaml
+└── tailwind.config.js
 ```
 
----
+## Menjalankan Proyek
 
-## 🚀 Cara Menjalankan Proyek
+Pastikan Node.js dan pnpm sudah terpasang. Instal dependensi dari direktori proyek:
 
-### 1. Mode Development (Auto-compile Tailwind)
+```bash
+pnpm install
+```
 
-Saat mengedit file HTML atau CSS, jalankan perintah berikut di terminal:
+Untuk mengembangkan proyek, jalankan Tailwind dalam mode watch:
 
 ```bash
 pnpm dev
 ```
 
-Perintah ini akan memantau (_watch mode_) setiap perubahan class Tailwind dan langsung memperbarui file `./dist/output.css`.
-
-### 2. Build untuk Produksi
-
-Untuk mengompilasi CSS versi minified akhir:
+Perintah tersebut membuat atau memperbarui `dist/output.css` saat file sumber berubah. Untuk menghasilkan CSS minified, jalankan:
 
 ```bash
 pnpm build
 ```
 
-### 3. Membuka Halaman di Browser
+Setelah menjalankan salah satu perintah di atas, buka [index.html](index.html) menggunakan Live Server atau server lokal lainnya. Halaman lainnya: [masuk.html](masuk.html) dan [daftar.html](daftar.html).
 
-Anda dapat membuka file HTML secara langsung:
+## Halaman
 
-- Buka file [index.html](file:///c:/0.%20CODING/BOOTCAMP%20HARISENIN%20FSD/Mission%203/chill/index.html) untuk melihat **Beranda**.
-- Buka file [masuk.html](file:///c:/0.%20CODING/BOOTCAMP%20HARISENIN%20FSD/Mission%203/chill/masuk.html) untuk melihat halaman **Masuk / Login**.
-- Buka file [daftar.html](file:///c:/0.%20CODING/BOOTCAMP%20HARISENIN%20FSD/Mission%203/chill/daftar.html) untuk melihat halaman **Daftar / Register**.
+- **Beranda**: banner utama dan beberapa bagian rekomendasi film.
+- **Masuk**: tampilan form masuk.
+- **Daftar**: tampilan form pendaftaran.
 
-_Tip_: Anda juga bisa menggunakan ekstensi VS Code **Live Server** untuk membuka `index.html` dengan reload otomatis di browser.
+## Batasan Proyek
 
----
-
-## 🎨 Halaman yang Tersedia
-
-1. **Beranda (`index.html`)**:
-   - Navbar sticky dengan brand logo & profil.
-   - Hero Banner "Duty After School" dengan tombol aksi dan rating 18+.
-   - Baris tontonan: _Melanjutkan Tonton Film_ (dengan progress bar), _Top Rating Hari ini_, _Film Trending_, dan _Rilis Baru_.
-   - Footer lengkap dengan navigasi genre dan bantuan.
-   - Responsif untuk desktop, tablet, dan smartphone.
-2. **Masuk (`masuk.html`)**:
-   - Tampilan modal login di tengah dengan background bioskop sinematik.
-   - Input username, password (dengan tombol toggle lihat sandi), tombol masuk, serta login alternatif dengan Google.
-3. **Daftar (`daftar.html`)**:
-   - Form pendaftaran dengan input username, password, dan konfirmasi password.
+Proyek ini berfokus pada frontend. Form masuk dan pendaftaran hanya berupa antarmuka; backend dan autentikasi pengguna belum tersedia.
